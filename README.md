@@ -28,20 +28,18 @@ Yes it is :)
 
 ### CloudFormation
 
-<a target="_blank" href="https://console.aws.amazon.com/cloudformation/home#/stacks/new?stackName=zer0x4447-Pay&templateURL=https://s3.amazonaws.com/0x4447-drive-cloudformation/pay.json">
+<a target="_blank" href="https://console.aws.amazon.com/cloudformation/home#/stacks/new?stackName=zer0x4447-AWSArtifacts&templateURL=https://s3.amazonaws.com/0x4447-drive-cloudformation/aws_artifacts.json">
 <img align="left" style="float: left; margin: 0 10px 0 0;" src="https://s3.amazonaws.com/cloudformation-examples/cloudformation-launch-stack.png"></a>
 
-To deploy this stack, all you need to do is click the button to the left and follow the instructions that CloudFormation provides in your AWS Dashboard. Alternatively, you can download the CF file from [here](https://s3.amazonaws.com/0x4447-drive-cloudformation/pay.json).
+To deploy this stack, all you need to do is click the button to the left and follow the instructions that CloudFormation provides in your AWS Dashboard. Alternatively, you can download the CF file from [here](https://s3.amazonaws.com/0x4447-drive-cloudformation/aws_artifacts.json).
 
 #### What Will Deploy?
 
-![Pay Diagram](https://raw.githubusercontent.com/0x4447/0x4447_product_pay/assets/diagram.png)
+![Pay Diagram](https://raw.githubusercontent.com/0x4447/0x4447_product_aws_artifacts/assets/diagram.png)
 
 The stack takes advantage of just S3.
 
 - 1x S3 Bucket with a life time policy.
-
-All project resources can be found [here](https://github.com/topics/0x4447-product-pay).
 
 # Pricing
 
