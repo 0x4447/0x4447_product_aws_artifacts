@@ -1,14 +1,14 @@
 # 💠 AWS Artifacts
 
-This is such a tiny project and yet so useful, at least to us. We kept having the following recurring issues:
+This is such a tiny project and yet so useful, at least to us. CodePipeline needs a Bucket to store temporary files for each stage in a Pipeline. The problem is that after a while you end up with GB of data that is costing you money and wasting unnecessary space. The simple solution is to add a Life Time Policy to the bucket, but we kept having the following recurring issues:
 
 - Forgetting how to name the bucket in a meaningful way that is organized.
 - Forgetting to add the region in the name of the bucket.
 - Enable a life time policy which would remove artifacts after 24h.
 
-So yes, this stack will literally make one bucket with a standardized name, and one life time policy.
+So yes, this stack will literally make one bucket with a standardized name, and one life time policy which deletes any object after 24h.
 
-We now deploy this stack for each AWS Account that has CodePipeline - and we don't have to think about it anymore. If this helps us be more organize, maybe it will help you to.
+We now deploy this stack for each AWS Account that has CodePipeline - and we don't have to think about it anymore. If this helps us be more organize, and spend less – maybe it will help you to.
 
 # DISCLAIMER!
 
