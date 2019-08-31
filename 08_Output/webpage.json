@@ -1,0 +1,6 @@
+{
+	"S3BucketNameOutput": {
+		"Value": { "Ref": "S3AWSArtifacts" },
+		"Description": "THe final bucket name."
+	}
+}

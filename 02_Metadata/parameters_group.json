@@ -1,0 +1,14 @@
+{
+	"AWS::CloudFormation::Interface" : {
+		"ParameterGroups": [
+			{
+				"Label" : { "default" : "Bucket naming info" },
+				"Parameters" : [ "CompanyNameParam", "AWSAccountNameParam" ]
+			}
+		],
+		"ParameterLabels": {
+			"CompanyNameParam": { "default" : "Company or Project name" },
+			"AWSAccountNameParam": { "default" : "AWS Account" }
+		}
+	}
+}

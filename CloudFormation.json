@@ -1,0 +1,85 @@
+{
+	"AWSTemplateFormatVersion": "2010-09-09",
+	"Description": "A standard configuration for a S3 bucket for CodePipeline with auto deletion so the artifacts don't pile up.",
+	"Metadata": {
+		"AWS::CloudFormation::Interface": {
+			"ParameterGroups": [
+				{
+					"Label": {
+						"default": "Bucket naming info"
+					},
+					"Parameters": [
+						"CompanyNameParam",
+						"AWSAccountNameParam"
+					]
+				}
+			],
+			"ParameterLabels": {
+				"CompanyNameParam": {
+					"default": "Company or Project name"
+				},
+				"AWSAccountNameParam": {
+					"default": "AWS Account"
+				}
+			}
+		}
+	},
+	"Parameters": {
+		"AWSAccountNameParam": {
+			"Description": "The name of the AWS Account you are deploying this stack in to. And this will be the second parameter in the Bucket name.",
+			"Type": "String"
+		},
+		"CompanyNameParam": {
+			"Description": "The name of your company or project. This value is going to be used as the first parameter of the Bucket name.",
+			"Type": "String"
+		}
+	},
+	"Resources": {
+		"S3AWSArtifacts": {
+			"Type": "AWS::S3::Bucket",
+			"Properties": {
+				"BucketName": {
+					"Fn::Sub": "${CompanyNameParam}-${AWSAccountNameParam}-aws-${AWS::Region}-codepipeline-artifacts"
+				},
+				"PublicAccessBlockConfiguration": {
+					"BlockPublicAcls": true,
+					"BlockPublicPolicy": true,
+					"IgnorePublicAcls": true,
+					"RestrictPublicBuckets": true
+				},
+				"LifecycleConfiguration": {
+					"Rules": [
+						{
+							"Id": "24h",
+							"ExpirationInDays": 1,
+							"NoncurrentVersionExpirationInDays": 1,
+							"Status": "Enabled"
+						}
+					]
+				},
+				"Tags": [
+					{
+						"Key": "Project Name",
+						"Value": "AWS Artifacts"
+					},
+					{
+						"Key": "Author",
+						"Value": "0x4447 LLC"
+					},
+					{
+						"Key": "Info",
+						"Value": "https://0x4447.com"
+					}
+				]
+			}
+		}
+	},
+	"Outputs": {
+		"S3BucketNameOutput": {
+			"Value": {
+				"Ref": "S3AWSArtifacts"
+			},
+			"Description": "THe final bucket name."
+		}
+	}
+}

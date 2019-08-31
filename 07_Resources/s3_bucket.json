@@ -1,0 +1,38 @@
+{
+	"S3AWSArtifacts": {
+		"Type": "AWS::S3::Bucket",
+		"Properties": {
+			"BucketName": { "Fn::Sub": "${CompanyNameParam}-${AWSAccountNameParam}-aws-${AWS::Region}-codepipeline-artifacts" },
+			"PublicAccessBlockConfiguration": {
+				"BlockPublicAcls": true,
+				"BlockPublicPolicy": true,
+				"IgnorePublicAcls": true,
+				"RestrictPublicBuckets": true
+			},
+			"LifecycleConfiguration": {
+				"Rules": [
+					{
+						"Id": "24h",
+						"ExpirationInDays": 1,
+						"NoncurrentVersionExpirationInDays": 1,
+						"Status": "Enabled"
+					}
+				]
+			},
+			"Tags": [
+				{
+					"Key" : "Project Name",
+					"Value" : "AWS Artifacts"
+				},
+				{
+					"Key" : "Author",
+					"Value" : "0x4447 LLC"
+				},
+				{
+					"Key" : "Info",
+					"Value" : "https://0x4447.com"
+				}
+			]
+		}
+	}
+}

@@ -1,0 +1,6 @@
+{
+	"CompanyNameParam": {
+		"Description": "The name of your company or project. This value is going to be used as the first parameter of the Bucket name.",
+		"Type": "String"
+	}
+}

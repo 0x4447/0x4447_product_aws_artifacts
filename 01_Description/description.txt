@@ -1,0 +1,1 @@
+A standard configuration for a S3 bucket for CodePipeline with auto deletion so the artifacts don't pile up.
