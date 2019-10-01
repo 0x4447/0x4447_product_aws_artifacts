@@ -2,7 +2,7 @@
 	"S3AWSArtifacts": {
 		"Type": "AWS::S3::Bucket",
 		"Properties": {
-			"BucketName": { "Fn::Sub": "${CompanyNameParam}-${AWSAccountNameParam}-aws-${AWS::Region}-codepipeline-artifacts" },
+			"BucketName": { "Fn::Sub": "${AWS::Region}-${AWSAccountNameParam}---${CompanyNameParam}---aws-codepipeline-artifacts" },
 			"PublicAccessBlockConfiguration": {
 				"BlockPublicAcls": true,
 				"BlockPublicPolicy": true,
